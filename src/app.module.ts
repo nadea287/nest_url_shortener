@@ -11,13 +11,15 @@ import {PassportModule} from "@nestjs/passport";
 import {LocalStrategy} from "./auth/local.strategy";
 import {AuthService} from "./services/auth.service";
 import {AuthModule} from "./modules/auth.module";
+import {JwtModule} from "@nestjs/jwt";
 
 @Module({
   imports: [
       CommonModule,
       TypeOrmModule.forFeature([Url, User]),
       UrlModule,
-      PassportModule.register({defaultStrategy: 'local'})
+      PassportModule.register({defaultStrategy: 'local'}),
+      AuthModule
   ],
   controllers: [AppController],
   providers: [AppService],
