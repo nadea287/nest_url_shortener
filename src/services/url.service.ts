@@ -4,9 +4,6 @@ import {Url} from "../entity/url.entity";
 import {Repository} from "typeorm";
 import {CreateUrlDto} from "../dto/CreateUrlDto";
 import {nanoid} from "nanoid";
-import path from "path";
-
-// import {nanoid} from "nanoid";
 
 @Injectable()
 export class UrlService {
