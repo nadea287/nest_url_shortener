@@ -9,6 +9,7 @@ import {User} from "./entity/user.entity";
 import {PassportModule} from "@nestjs/passport";
 import {AuthModule} from "./modules/auth.module";
 import {ConfigModule} from "@nestjs/config";
+import {UserModule} from "./modules/user.module";
 
 @Module({
   imports: [
@@ -17,7 +18,8 @@ import {ConfigModule} from "@nestjs/config";
       UrlModule,
       PassportModule.register({defaultStrategy: 'local'}),
       AuthModule,
-      ConfigModule.forRoot()
+      ConfigModule.forRoot(),
+      UserModule
   ],
   controllers: [AppController],
   providers: [AppService],
