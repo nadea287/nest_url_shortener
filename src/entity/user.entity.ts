@@ -1,4 +1,5 @@
-import {Column, Entity, PrimaryGeneratedColumn} from "typeorm";
+import {Column, Entity, OneToMany, PrimaryGeneratedColumn} from "typeorm";
+import {Url} from "./url.entity";
 
 @Entity()
 export class User {
@@ -6,11 +7,14 @@ export class User {
     id: number
 
     @Column()
-    firstName: string
+    type: string
 
-    @Column()
-    lastName: string
+    @Column({ unique: true })
+    username: string
 
     @Column()
     password: string
+
+    @OneToMany(() => Url, (url) => url.user)
+    urls: Url[]
 }
