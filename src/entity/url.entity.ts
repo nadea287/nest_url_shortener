@@ -7,6 +7,9 @@ export class Url {
     id: number
 
     @Column()
+    userId: number
+
+    @Column()
     urlCode: string
 
     @Column()
@@ -14,6 +17,9 @@ export class Url {
 
     @Column()
     shortUrl: string
+
+    @Column({ default: 0 })
+    numberOfVisits: number
 
     @ManyToOne(() => User, (user) => user.urls)
     user: User

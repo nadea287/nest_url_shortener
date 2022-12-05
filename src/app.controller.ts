@@ -1,7 +1,7 @@
 import {Controller, Get, Post, Request, UseGuards} from '@nestjs/common';
-import { AppService } from './app.service';
 import {LocalAuthGuard} from "./auth/local-auth.guard";
 import {AuthService} from "./services/auth.service";
+import {JwtAuthGuard} from "./auth/jwt-auth.guard";
 
 @Controller()
 export class AppController {
@@ -24,5 +24,18 @@ export class AppController {
   @Post('/login')
   login(@Request() request) {
     return this.authService.login(request.user) // return JWT access token
+  }
+
+  //todo logout
+
+  // @UseGuards(LocalAuthGuard)
+  @UseGuards(JwtAuthGuard)
+  @Post('/logout')
+  logout(@Request() request: Request) {
+    // JWTAuth::parseToken()->invalidate()
+    // console.log('here');
+    // console.log(request.);process.exit()
+    // console.log(request.clearCookie(request.headers.authorization));process.exit()
+    // request.clearCookie()
   }
 }

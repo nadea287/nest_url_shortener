@@ -1,5 +1,6 @@
 import {IsEnum, IsString} from "class-validator";
 import {UserType} from "../config/config";
+import {Match} from "../decorators/match.decorator";
 
 export class CreateUserDto {
     @IsString()
@@ -11,4 +12,8 @@ export class CreateUserDto {
 
     @IsString()
     password: string
+
+    @IsString()
+    @Match('password')
+    passwordConfirm: string
 }
