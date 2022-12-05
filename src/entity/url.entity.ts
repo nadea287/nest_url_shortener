@@ -1,4 +1,5 @@
-import {Column, Entity, PrimaryGeneratedColumn} from "typeorm";
+import {Column, Entity, ManyToOne, PrimaryGeneratedColumn} from "typeorm";
+import {User} from "./user.entity";
 
 @Entity()
 export class Url {
@@ -13,4 +14,7 @@ export class Url {
 
     @Column()
     shortUrl: string
+
+    @ManyToOne(() => User, (user) => user.urls)
+    user: User
 }

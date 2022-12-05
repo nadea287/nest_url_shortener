@@ -10,7 +10,7 @@ async function bootstrap() {
         whitelist: true
     }))
     // app.use(session({
-    //     secret: 'keyboard cat', //todo put this in an environment variable
+    //     secret: 'keyboard cat',
     //     //todo: by default express session uses in memory store, that doens't work well in production - it's gonna have memory leaks (Redis / db ~ whenever you wanna save your session) ! covered in the documentation of `express-session`
     //     resave: false,
     //     saveUninitialized: true,

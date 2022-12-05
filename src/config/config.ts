@@ -12,3 +12,8 @@ const config: Config = {
 }
 
 export default config
+
+export enum UserType {
+    ADMIN = 'admin',
+    USER = 'user'
+}
