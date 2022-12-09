@@ -71,3 +71,20 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](LICENSE).
+
+## Configuration Files
+To be able to define configuration variables, please create the following files (and customize the variables values):
+
+```
+.env.development
+
+DB_NAME=your_own_db_name_for_development_environment
+JWT_SECRET=jwt_secret_key_goes_here
+```
+
+```
+.env.test
+
+DB_NAME=your_own_db_name_for_testing_environment
+JWT_SECRET=jwt_secret_key_goes_here
+```
