@@ -6,6 +6,8 @@ import {CurrentUser} from "../decorators/current.user.decorator";
 import {User} from "../entity/user.entity";
 import {Url} from "../entity/url.entity";
 import {Response} from "express";
+import {Serialize} from "../interceptors/serialize.interceptor";
+import {UrlDto} from "../dto/url.dto";
 
 @Controller('urls')
 export class UrlController {
@@ -19,6 +21,7 @@ export class UrlController {
     // @UseGuards(AuthenticatedGuards)
     @UseGuards(JwtAuthGuard)
     @Post()
+    @Serialize(UrlDto)
     createUrl(@Body() body: CreateUrlDto, @CurrentUser() user: User) { //require a Bearer token, validate token
         return this.urlService.create(body, user)
     }
