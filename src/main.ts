@@ -4,12 +4,14 @@ import {ValidationPipe} from "@nestjs/common";
 import * as passport from "passport";
 import * as session from "express-session";
 import * as cookieParser from 'cookie-parser'
+import {setupApp} from "./setup-app";
 
 async function bootstrap() {
     const app = await NestFactory.create(AppModule);
-    app.useGlobalPipes(new ValidationPipe({
-        whitelist: true
-    }))
+    setupApp(app)
+    // app.useGlobalPipes(new ValidationPipe({
+    //     whitelist: true
+    // }))
     app.use(cookieParser())
     // app.use(session({
     //     secret: 'keyboard cat',
